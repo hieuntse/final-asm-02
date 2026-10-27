@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đề 02 - Quản lý đơn hàng đã mua của sinh viên</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+  </head>
+  <body>
+    <main class="container">
+      <h1>Quản lý đơn hàng đã mua của sinh viên</h1>
+
+      <div class="workspace">
+        <section class="panel" aria-labelledby="formTitle">
+          <h2 id="formTitle">Thêm đơn hàng đã mua</h2>
+          <form id="itemForm">
+            <div class="field">
+              <label for="title">Nội dung đơn hàng *</label>
+              <input id="title" name="title" type="text" required>
+            </div>
+            <div class="field">
+              <label for="platform">Kênh bán hàng *</label>
+              <select id="platform" name="platform" required>
+                <option value="">Chọn kênh bán hàng</option>
+                <option value="Shopee">Shopee</option>
+                <option value="Lazada">Lazada</option>
+                <option value="TikTok Shop">TikTok Shop</option>
+                <option value="Tiki">Tiki</option>
+                <option value="Website cửa hàng">Website cửa hàng</option>
+                <option value="Cửa hàng trực tiếp">Cửa hàng trực tiếp</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="price">Tổng tiền (VNĐ) *</label>
+              <input id="price" name="price" type="number" required>
+            </div>
+            <div class="field">
+              <label for="date">Ngày mua *</label>
+              <input id="date" name="date" type="date" required>
+            </div>
+            <div class="field">
+              <label for="note">Ghi chú</label>
+              <textarea id="note" name="note" rows="3"></textarea>
+            </div>
+            <div class="actions">
+              <button id="saveBtn" type="submit">Thêm đơn hàng đã mua</button>
+              <button id="cancelEditBtn" type="button" class="secondary" hidden>Hủy sửa</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="panel" aria-labelledby="listTitle">
+          <h2 id="listTitle">Danh sách đơn hàng đã mua</h2>
+          <div class="field">
+            <label for="filterSelect">Lọc theo kênh bán hàng</label>
+            <select id="filterSelect">
+              <option value="">Tất cả</option>
+              <option value="Shopee">Shopee</option>
+              <option value="Lazada">Lazada</option>
+              <option value="TikTok Shop">TikTok Shop</option>
+              <option value="Tiki">Tiki</option>
+              <option value="Website cửa hàng">Website cửa hàng</option>
+              <option value="Cửa hàng trực tiếp">Cửa hàng trực tiếp</option>
+            </select>
+          </div>
+          <p id="loading" class="muted" role="status" hidden>Đang tải dữ liệu...</p>
+          <div id="items" class="cards"></div>
+          <p id="emptyState" class="muted" hidden>Không có dữ liệu phù hợp.</p>
+          <nav class="pagination" aria-label="Phân trang danh sách">
+            <button id="prevPageBtn" type="button" class="secondary" disabled>Trước</button>
+            <span id="pageInfo" aria-live="polite">Trang 0 / 0</span>
+            <button id="nextPageBtn" type="button" class="secondary" disabled>Sau</button>
+          </nav>
+        </section>
+      </div>
+    </main>
+
+    <script type="module" src="assets/js/app.js"></script>
+  </body>
+</html>
